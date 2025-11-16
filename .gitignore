@@ -1,3 +1,41 @@
+# IDE
 .idea/
+.bsp/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.metals/
+.bloop/
+
+# Gradle
+.gradle/
+build/
+gradle-app.setting
+!gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Build artifacts
 target/
-resources/*
+out/
+bin/
+
+# Resources (may contain sensitive data)
+src/main/resources/application.conf
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Scala-specific
+.scala_dependencies
+.cache-*
+
+# Temporary files
+*.swp
+*.swo
+*~

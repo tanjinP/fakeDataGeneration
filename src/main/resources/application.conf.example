@@ -1,0 +1,38 @@
+# Database Configuration Example
+# Copy this file to application.conf and update with your credentials
+
+database {
+  # JDBC connection URL
+  # For local docker: jdbc:postgresql://localhost:5432/fakedata
+  # For remote: jdbc:postgresql://your-host:5432/your-database
+  url = "jdbc:postgresql://localhost:5432/fakedata"
+  url = ${?DB_URL}  # Override with environment variable if set
+
+  # JDBC driver class
+  driver = "org.postgresql.Driver"
+
+  # Database credentials
+  user = "postgres"
+  user = ${?DB_USER}
+
+  password = "postgres"
+  password = ${?DB_PASSWORD}
+
+  # Connection pool settings (for Slick)
+  connectionPool = "HikariCP"
+  numThreads = 10
+  maxConnections = 10
+  minConnections = 2
+  queueSize = 1000
+}
+
+# Data Generation Settings
+generation {
+  # Number of records to generate per table
+  recordCount = 10000
+  recordCount = ${?RECORD_COUNT}
+
+  # Batch size for bulk inserts (avoid exceeding Postgres limits)
+  batchSize = 5000
+  batchSize = ${?BATCH_SIZE}
+}
